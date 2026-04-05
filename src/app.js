@@ -6,6 +6,7 @@ const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const requestRouter = require("./routes/request");
 const userRouter = require("./routes/user");
+const paymentRouter = require("./routes/payment");
 const cors = require("cors");
 require("./utils/cronjobs");
 
@@ -22,7 +23,7 @@ app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
 app.use("/", userRouter);
-
+app.use("/", paymentRouter);
 connectDB()
   .then(() => {
     console.log("Database coneection established");
