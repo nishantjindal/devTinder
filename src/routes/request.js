@@ -48,10 +48,11 @@ requestRouter.post(
 
       const data = await connectionRequest.save();
 
-      const emailRes = await sendEmail.run(
-        "A new friend request from " + req.user.firstName,
-        req.user.firstName + " is " + status + " in " + toUser.firstName,
-      );
+      // const emailRes = await sendEmail.run(
+      //   "A new friend request from " + req.user.firstName,
+      //   req.user.firstName + " is " + status + " in " + toUser.firstName
+      // );
+      // console.log(emailRes);
 
       res.json({
         message:
@@ -61,7 +62,7 @@ requestRouter.post(
     } catch (err) {
       res.status(400).send("ERROR: " + err.message);
     }
-  },
+  }
 );
 
 requestRouter.post(
@@ -96,7 +97,7 @@ requestRouter.post(
     } catch (err) {
       res.status(400).send("ERROR: " + err.message);
     }
-  },
+  }
 );
 
 module.exports = requestRouter;
