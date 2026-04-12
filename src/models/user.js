@@ -60,7 +60,8 @@ const userSchema = new mongoose.Schema(
     },
     photoUrl: {
       type: String,
-      default: "https://geographyandyou.com/images/user-profile.png",
+      default:
+        "https://img.freepik.com/premium-vector/people-profile-graphic_24911-21373.jpg",
       validate(value) {
         if (!validator.isURL(value)) {
           throw new Error("Invalid Photo URL: " + value);
@@ -77,7 +78,7 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 userSchema.methods.getJWT = async function () {
@@ -96,7 +97,7 @@ userSchema.methods.validatePassword = async function (passwordInputByUser) {
 
   const isPasswordValid = await bcrypt.compare(
     passwordInputByUser,
-    passwordHash
+    passwordHash,
   );
 
   return isPasswordValid;
